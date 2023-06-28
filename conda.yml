@@ -1,0 +1,11 @@
+name: yolonas-deepsort
+
+dependencies:
+  - python==3.10
+  
+  - pip:
+    - torch
+    - imutils
+    - Pillow
+    - deep-sort-realtime
+    - super-gradients==3.1.2
