@@ -17,13 +17,11 @@ This repository contains code for object tracking in videos using the YOLO-NAS o
    ```
    conda env create -f conda.yml
    conda activate yolonas-deepsort
-
    ```
 2. Clone the repository:
    ```
    git clone https://github.com/sujanshresstha/YOLO-NAS_DeepSORT.git
    cd YOLO-NAS_DeepSORT
-
    ```
 
 ## Usage
@@ -45,7 +43,6 @@ This repository contains code for object tracking in videos using the YOLO-NAS o
 
    # Run object tracking using YOLO-NAS and DeepSort on webcam (set video flag to 0)
    python object_tracking.py --video 0 --output ./output/webcam.mp4 --model yolo_nas_l
-
    ```
    
 6. During runtime:
