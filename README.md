@@ -13,16 +13,18 @@ This repository contains code for object tracking in videos using the YOLO-NAS o
 - super-gradients
 
 ## Installation
-1. Create new environment using conda
-   ```
-   conda env create -f conda.yml
-   conda activate yolonas-deepsort
-   ```
-2. Clone the repository:
+1. Clone the repository:
    ```
    git clone https://github.com/sujanshresstha/YOLO-NAS_DeepSORT.git
    cd YOLO-NAS_DeepSORT
    ```
+   
+2. Create new environment using conda
+   ```
+   conda env create -f conda.yml
+   conda activate yolonas-deepsort
+   ```
+
 
 ## Usage
 1. Prepare the video file:
