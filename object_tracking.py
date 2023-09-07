@@ -13,7 +13,7 @@ flags.DEFINE_string('model', 'yolo_nas_l', 'yolo_nas_l or yolo_nas_m or yolo_nas
 flags.DEFINE_string('video', './data/video/test.mp4', 'path to input video or set to 0 for webcam')
 flags.DEFINE_string('output', './output/output.mp4', 'path to output video')
 flags.DEFINE_float('conf', 0.50, 'confidence threshhold')
-flags.DEFINE_int('class_id', None, 'class id 0 for person chaeck coco.names for others')
+flags.DEFINE_integer('class_id', None, 'class id 0 for person chaeck coco.names for others')
 
 def main(_argv):
     # Initialize the video capture and the video writer objects
