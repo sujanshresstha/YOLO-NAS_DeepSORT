@@ -13,6 +13,7 @@ flags.DEFINE_string('model', 'yolo_nas_l', 'yolo_nas_l or yolo_nas_m or yolo_nas
 flags.DEFINE_string('video', './data/video/test.mp4', 'path to input video or set to 0 for webcam')
 flags.DEFINE_string('output', './output/output.mp4', 'path to output video')
 flags.DEFINE_float('conf', 0.50, 'confidence threshhold')
+flags.DEFINE_int('class_id', None, 'class id 0 for person chaeck coco.names for others')
 
 def main(_argv):
     # Initialize the video capture and the video writer objects
@@ -77,9 +78,13 @@ def main(_argv):
             # Extract the confidence (i.e., probability) associated with the detection
             confidence = data[4]
 
-            # Filter out weak detections by ensuring the confidence is greater than the minimum confidence
-            if float(confidence) < FLAGS.conf:
-                continue
+            # Filter out weak detections by ensuring the confidence is greater than the minimum confidence and with the class_id
+            if FLAGS.class_id == None:
+                if float(confidence) < FLAGS.conf:
+                    continue
+            else:
+                if ((int(data[5]!=0)) or (float(confidence) < FLAGS.conf)):
+                    continue
 
             # If the confidence is greater than the minimum confidence, draw the bounding box on the frame
             xmin, ymin, xmax, ymax = int(data[0]), int(data[1]), int(data[2]), int(data[3])
