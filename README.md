@@ -37,21 +37,26 @@ This repository contains code for object tracking in videos using the YOLO-NAS o
    - Update the `output` flag in the code to specify the path and filename of the output video file.
 4. Set the confidence threshold:
    - Adjust the `conf` flag in the code to set the confidence threshold for object detection. Objects with confidence below this threshold will be filtered out.
+5. If you want to detect and track certain object on video 
+   - Please modify the class_id flag in the code to specify the class ID for detection. The default value of the flag is set to None. If you wish to detect and track only persons, set it to 0, or refer to the coco.names file for other options.
 
-5. Run the code:
+6. Run the code:
    ```
    # Run object tracking using YOLO-NAS and DeepSort on a video
    python object_tracking.py --video ./data/video/test.mp4 --output ./output/output.mp4 --model yolo_nas_l
 
    # Run object tracking using YOLO-NAS and DeepSort on webcam (set video flag to 0)
    python object_tracking.py --video 0 --output ./output/webcam.mp4 --model yolo_nas_l
+
+   # Run person tracking using YOLO-NAS and DeepSort on a video (set class_id flag to 0 for person)
+   python object_tracking.py --video ./data/video/test.mp4 --output ./output/output.mp4 --model yolo_nas_l --class_id 0
    ```
    
-6. During runtime:
+7. During runtime:
    - The processed video frames will be displayed in a window.
    - The frames per second (FPS) will be printed in the console.
    - Press the 'q' key to stop the processing and close the window.
-7. After completion:
+8. After completion:
    - The output video file will be saved in the specified location.
 
 ## Model and Data
