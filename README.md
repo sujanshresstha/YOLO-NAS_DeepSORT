@@ -38,7 +38,7 @@ This repository contains code for object tracking in videos using the YOLO-NAS o
 4. Set the confidence threshold:
    - Adjust the `conf` flag in the code to set the confidence threshold for object detection. Objects with confidence below this threshold will be filtered out.
 5. If you want to detect and track certain object on video 
-   - Please modify the class_id flag in the code to specify the class ID for detection. The default value of the flag is set to None. If you wish to detect and track only persons, set it to 0, or refer to the coco.names file for other options.
+   - Please modify the `class_id` flag in the code to specify the class ID for detection. The default value of the flag is set to None. If you wish to detect and track only persons, set it to 0, or refer to the coco.names file for other options.
 
 6. Run the code:
    ```
