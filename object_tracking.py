@@ -83,7 +83,7 @@ def main(_argv):
                 if float(confidence) < FLAGS.conf:
                     continue
             else:
-                if ((int(data[5]!=0)) or (float(confidence) < FLAGS.conf)):
+                if ((int(data[5] != FLAGS.class_id)) or (float(confidence) < FLAGS.conf)):
                     continue
 
             # If the confidence is greater than the minimum confidence, draw the bounding box on the frame
