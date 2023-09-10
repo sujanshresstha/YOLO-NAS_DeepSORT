@@ -36,7 +36,7 @@ def main(_argv):
     model = models.get(FLAGS.model, pretrained_weights="coco").to(device)
 
     # Load the COCO class labels the YOLO model was trained on
-    classes_path = "./configs/coco.names"
+    classes_path = "YOLO-NAS_DeepSORT/configs/coco.names"
     with open(classes_path, "r") as f:
         class_names = f.read().strip().split("\n")
 
