@@ -13,7 +13,8 @@ flags.DEFINE_string('model', 'yolo_nas_l', 'yolo_nas_l or yolo_nas_m or yolo_nas
 flags.DEFINE_string('video', './data/video/test.mp4', 'path to input video or set to 0 for webcam')
 flags.DEFINE_string('output', './output/output.mp4', 'path to output video')
 flags.DEFINE_float('conf', 0.50, 'confidence threshhold')
-flags.DEFINE_integer('class_id', None, 'class id 0 for person chaeck coco.names for others')
+flags.DEFINE_integer('class_id', None, 'class id 0 for person check coco.names for others')
+flags.DEFINE_integer('blur_id', None, 'class id to blurring the object')
 
 def main(_argv):
     # Initialize the video capture and the video writer objects
@@ -115,6 +116,11 @@ def main(_argv):
             # Create text for track ID and class name
             text = str(track_id) + " - " + str(class_names[class_id])
             
+            #Apply Gaussian Blur
+            if FLAGS.blur_id is not None and class_id == FLAGS.blur_id:
+                if x1 < x2 and y1 < y2 and x1 >= 0 and y1 >= 0 and x2 <= frame.shape[1] and y2 <= frame.shape[0]:
+                    frame[y1:y2, x1:x2] = cv2.GaussianBlur(frame[y1:y2, x1:x2], (99,99), 5)
+
             # Draw bounding box and text on the frame
             cv2.rectangle(frame, (x1, y1), (x2, y2), (B, G, R), 2)
             cv2.rectangle(frame, (x1 - 1, y1 - 20), (x1 + len(text) * 12, y1), (B, G, R), -1)
@@ -130,10 +136,8 @@ def main(_argv):
         fps = f"FPS: {1 / (end - start).total_seconds():.2f}"
         cv2.putText(frame, fps, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 8)
 
-        # Show the frame
         cv2.imshow("Frame", frame)
         
-        # Write the frame to the output video file
         writer.write(frame)
         
         # Check for 'q' key press to exit the loop
