@@ -3,7 +3,16 @@
 This repository contains code for object tracking in videos using the YOLO-NAS object detection model and the DeepSORT algorithm. The code processes each frame of a video, performs object detection using YOLO-NAS, and tracks the detected objects across frames using DeepSort.
 
 ## Demo of Object Tracker
-<p align="center"><img src="data/helpers/demo.gif"\></p>
+<p align="center">
+  <img src="data/helpers/demo.gif" alt="demo" width="45%">
+  <img src="data/helpers/blured.gif" alt="blur" width="45%">
+</p>
+
+<p align="center">
+  <em>Demo of Object Tracker</em>
+  <span style="margin-left: 20px;"></span>
+  <em>Demo with object blurring</em>
+</p>
 
 ## Prerequisites
 - Python 3.10
